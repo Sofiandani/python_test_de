@@ -1,0 +1,78 @@
+{
+  "diphenhydramine": {
+    "mentions": [
+      {
+        "journal": "journal of emergency nursing",
+        "date": "2019-01-01 00:00:00"
+      },
+      {
+        "journal": "journal of emergency nursing",
+        "date": "2019-01-01 00:00:00"
+      },
+      {
+        "journal": "the journal of pediatrics",
+        "date": "2019-01-02 00:00:00"
+      },
+      {
+        "journal": "journal of emergency nursing",
+        "date": "2020-01-01 00:00:00"
+      },
+      {
+        "journal": "journal of emergency nursing",
+        "date": "2020-01-01 00:00:00"
+      },
+      {
+        "journal": "journal of emergency nursing",
+        "date": "2020-01-01 00:00:00"
+      }
+    ]
+  },
+  "tetracycline": {
+    "mentions": [
+      {
+        "journal": "journal of food protection",
+        "date": "2020-01-01 00:00:00"
+      },
+      {
+        "journal": "american journal of veterinary research",
+        "date": "2020-01-02 00:00:00"
+      },
+      {
+        "journal": "psychopharmacology",
+        "date": "2020-01-01 00:00:00"
+      }
+    ]
+  },
+  "ethanol": {
+    "mentions": [
+      {
+        "journal": "psychopharmacology",
+        "date": "2020-01-01 00:00:00"
+      }
+    ]
+  },
+  "epinephrine": {
+    "mentions": [
+      {
+        "journal": "the journal of allergy and clinical immunology. in practice",
+        "date": "2020-02-01 00:00:00"
+      },
+      {
+        "journal": "the journal of allergy and clinical immunology. in practice",
+        "date": "2020-03-01 00:00:00"
+      },
+      {
+        "journal": "journal of emergency nursing",
+        "date": "2020-04-27 00:00:00"
+      }
+    ]
+  },
+  "betamethasone": {
+    "mentions": [
+      {
+        "journal": "hôpitaux universitaires de genève",
+        "date": "2020-01-01 00:00:00"
+      }
+    ]
+  }
+}
