@@ -3,7 +3,7 @@ from typing import List, Dict
 
 def build_graph(mentions: List[Dict]) -> Dict:
     """
-    Construit un graphe de mentions par médicament, avec les infos de mention par journal et date de mention.
+    Builds a graph of mentions by drug, with mention information by journal and mention date.
     """
     graph = defaultdict(lambda: {"mentions": []})
 

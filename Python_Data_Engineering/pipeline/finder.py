@@ -3,8 +3,8 @@ import pandas as pd
 
 def find_mentions(df: pd.DataFrame, column: str, drugs: List[str]) -> List[Dict]:
     """
-    Recherche les mentions de médicaments dans une colonne de titre.
-    Ajout des informations du journal et de la date où le médicament a été mentionné.
+    Searches for drug mentions in a title column.
+    Adds journal information and the date when the drug was mentioned.
     """
     mentions = []
 

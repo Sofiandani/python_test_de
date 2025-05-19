@@ -8,16 +8,16 @@ from pipeline.results import journal_with_most_drugs, drugs_ref_in_pubmed
 
 
 def main():
-    #Chargement des données
+    # Loading data
     drugs = load_csv('data/drugs.csv')
     pubmed_csv = load_csv('data/pubmed.csv')
     pubmed_json = load_json('data/pubmed.json')  
     clinical_trials = load_csv('data/clinical_trials.csv')
 
-    # Fusion des fichiers pubmed csv et json
+    # Merging pubmed csv and json files
     pubmed = pd.concat([pubmed_csv, pubmed_json], ignore_index=True)
 
-    # Nettoyage de la donnée
+    # Data cleaning
     drugs = drop_na_column(drugs, 'atccode')
     drugs = clean_column(drugs, 'drug')
 
@@ -31,29 +31,30 @@ def main():
     clinical_trials = clean_column(clinical_trials, column='scientific_title')
     clinical_trials = clean_column(clinical_trials, column='journal')
 
-    # Correspondace entre médicament et titre
+    # Correspondence between drug and title
     drug_names = drugs['drug'].tolist()
     mentions_pubmed = find_mentions(pubmed, column='title', drugs=drug_names)
     mentions_clinical_trials= find_mentions(clinical_trials, column='scientific_title', drugs=drug_names)
 
     all_mentions = mentions_pubmed + mentions_clinical_trials
 
-    # Construction du graphe
+    # Graph construction
     drug_mentions_graph = build_graph(all_mentions)
 
-    # Création du fichier JSON de sortie
+    # Creating the output JSON file
     write_json(drug_mentions_graph, 'output/drug_mentions_graph.json')
-    print("Pipeline terminée. Résultat : output/drug_mentions_graph.json")
+    print("Pipeline finished. Résultat : output/drug_mentions_graph.json")
 
     # BONUS
-    # Journal avec le plus de médicaments différents
-    print("Journal avec le plus de médicaments différents :", journal_with_most_drugs(drug_mentions_graph))
+    # Journal with the most different medications
+    print("Journal with the most different medications :", journal_with_most_drugs(drug_mentions_graph))
 
-    # Médicament(s) mentionné par un même journal
+    # Drug(s) mentioned by the same journal
     pubmed_journals = set(pubmed['journal'].unique())
     drug = 'ethanol'
     ref = drugs_ref_in_pubmed(drug_mentions_graph, pubmed_journals, drug)
-    print(f"Médicament(s) liés à {drug} (pubmed)):", ref)
+    print(f"Drug(s) related to {drug} (pubmed)):", ref)
+
 
 if __name__ == "__main__":
     main()

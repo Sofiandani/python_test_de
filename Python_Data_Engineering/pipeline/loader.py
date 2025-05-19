@@ -5,21 +5,21 @@ import os
 
 def auto_fix_json_file(path: str, fixed_path: str = None) -> bool:
     """
-    Corrige un fichier JSON invalide (ex : virgule finale) seulement si nécessaire.
+    Fix an invalid JSON file (eg trailing comma) only if necessary.
     """
     try:
         with open(path, 'r', encoding='utf-8') as f:
             original_content = f.read()
 
-        # Appliquer les corrections
+        # Apply corrections
         cleaned_content = re.sub(r',(\s*[\]\}])', r'\1', original_content)
 
-        # Si rien à corriger, on ne crée pas de fichier inutile
+        # If there is nothing to correct, we do not create an unnecessary file
         if original_content == cleaned_content:
             print(f"Aucun problème détecté. Le fichier est déjà valide : {path}")
             return True
 
-        # Déterminer le chemin de sortie
+        # Determine the exit path
         if not fixed_path:
             base, ext = os.path.splitext(path)
             fixed_path = f"{base}_fixed{ext}"
@@ -27,15 +27,15 @@ def auto_fix_json_file(path: str, fixed_path: str = None) -> bool:
         with open(fixed_path, 'w', encoding='utf-8') as f:
             f.write(cleaned_content)
 
-        # Vérification que le fichier corrigé est bien du JSON valide
+        # Checking that the corrected file is valid JSON
         with open(fixed_path, 'r', encoding='utf-8') as f:
             json.load(f)
 
-        print(f"Fichier JSON corrigé et sauvegardé : {fixed_path}")
+        print(f"Corrected and saved JSON file : {fixed_path}")
         return True
 
     except Exception as e:
-        print(f"Échec de la correction automatique : {e}")
+        print(f"Automatic correction failed : {e}")
         return False
 
 
@@ -45,9 +45,9 @@ def load_csv(path: str) -> pd.DataFrame:
 
 def load_json(path: str) -> pd.DataFrame:
     """
-    Charge un fichier JSON en DataFrame, avec correction automatique si nécessaire.
+    Loads a JSON file into a DataFrame, with automatic correction if necessary.
     """
-    # Corrige si besoin et obtient le fichier à charger
+    # Correct if necessary and get the file to load
     base, ext = os.path.splitext(path)
     fixed_path = f"{base}_fixed{ext}"
 
@@ -55,7 +55,7 @@ def load_json(path: str) -> pd.DataFrame:
 
     final_path = fixed_path if was_fixed else path
 
-    # Lecture du fichier (corrigé ou non)
+    # Reading the file (corrected or not)
     with open(final_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
