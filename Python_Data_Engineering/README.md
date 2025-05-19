@@ -52,9 +52,24 @@ python main.py
  - Export the graph to output/drug_mentions_graph.json
  - Print answers to bonus business questions
 
-
 ## Final output
 The final output is saved as:
 ```bash
 output/drug_mentions_graph.json
+```
+
+# Tests
+
+Unit tests are provided in the tests/ folder.
+They validate the main components of the pipeline, including:
+
+## What is tested
+ - test_cleaner.py	Cleaning logic: date parsing, ID filtering, column normalization
+ - test_finder.py	Drug mention detection in titles
+ - test_graph_builder.py	Graph structure generation from mentions
+ - test_results.py	Bonus analysis: most frequent journal, related drugs via PubMed
+
+Run all tests with:
+```bash
+python -m pytest
 ```

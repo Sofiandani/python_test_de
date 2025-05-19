@@ -4,7 +4,7 @@ from pipeline.finder import find_mentions
 def test_find_mentions_detects_exact_drug():
     df = pd.DataFrame({
         'title': ['Paracetamol is effective', 'Ibuprofen vs placebo', 'No drug here'],
-        'journal': ['Lancet', 'BMJ', 'NEJM'],
+        'journal': ['lequipe', 'RMC', 'BEIN'],
         'date': ['2020-01-01', '2020-01-02', '2020-01-03']
     })
     drugs = ['paracetamol', 'ibuprofen']
