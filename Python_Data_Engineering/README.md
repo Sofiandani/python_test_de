@@ -18,17 +18,29 @@ This project is a modular Python data pipeline that detects mentions of drugs in
 # Project Structure
 
 ├── main.py # Entry point for the pipeline
+
 ├── pipeline/
+
 │ ├── loader.py # load_csv(), load_json()
+
 │ ├── cleaner.py # clean_column(), drop_na_column(), try_parse_date_column()
+
 │ ├── finder.py # find_mentions()
+
 │ ├── graph_builder.py # build_graph()
+
 │ ├── output.py # write_json()
+
 │ └── results.py # journal_with_most_drugs(), drugs_ref_in_pubmed()
+
 ├── data/ # Raw input files (CSV/JSON)
+
 ├── output/ # Output folder for final JSON
+
 ├── tests/ # Unit tests (pytest)
+
 ├── requirements.txt # Python dependencies
+
 └── README.md
 
 # Setup & Dependencies
