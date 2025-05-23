@@ -1,0 +1,24 @@
+# Environnements virtuels
+venv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Fichiers système
+.DS_Store
+
+# Données temporaires
+*.log
+*.tmp
+
+# Jupyter Notebooks (si utilisés)
+.ipynb_checkpoints/
+
+# Dossiers spécifiques
+output/
+data/
+
+# Éditeurs
+.vscode/
+.idea/
